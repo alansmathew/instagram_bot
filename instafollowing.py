@@ -5,8 +5,7 @@ import sys
 sys.path.insert(0,'/Users/alansmathew/Desktop/insta_backup/')
 from password import password_
 
-page=webdriver.Chrome(executable_path = '/Users/alansmathew/Desktop/instagram_bot/chromedriver')
-page.minimize_window()
+page=''
 
 def loading(classname):
 	try:
@@ -31,6 +30,8 @@ def scroll():
     return names
     
 def login(username,password):
+    global page
+    page = webdriver.Chrome(executable_path = '/Users/alansmathew/Desktop/instagram_bot/chromedriver')
     page.maximize_window()
     page.get('https://www.instagram.com/accounts/login/')
     time.sleep(3)
@@ -54,6 +55,8 @@ def likePhoto(user):
     page.get('https://www.instagram.com/' + user)
     loading('g47SY ')
     amount=int(page.find_element_by_class_name('g47SY ').text)
+    if(amount==0):
+        return
     loading('v1Nh3')
     page.find_element_by_class_name('v1Nh3').click()
     i = 1
@@ -65,27 +68,14 @@ def likePhoto(user):
             except :
                 return
         lk()
-        page.find_element_by_class_name('coreSpriteRightPaginationArrow').click()
+        if(i==amount):
+            return
+        else:
+            page.find_element_by_class_name('coreSpriteRightPaginationArrow').click()
         i += 1
-
-# def likePhotos(amount):
-# 	loading('v1Nh3')
-# 	page.find_element_by_class_name('v1Nh3').click()
-# 	i = 1
-# 	while i <= amount:
-# 		loading('_15y0l')
-# 		def lk():
-# 			try:
-# 				page.find_element_by_xpath("//*[contains(@aria-label,'Like')]").click()
-# 			except :
-# 				return
-# 		lk()
-# 		page.find_element_by_class_name('coreSpriteRightPaginationArrow').click()
-# 		i += 1
 
 username='alan_s_mathew'
 password=password_
-
 
 ch='y'
 while(ch=='y' or ch=='Y'):
@@ -96,7 +86,7 @@ while(ch=='y' or ch=='Y'):
         following_ppl=following(username)
         followers_ppl=followers(username)
         page.close()
-        not_following =[ names for names in following_ppl if names in followers_ppl ]
+        not_following =[ names for names in following_ppl if names not in followers_ppl ]
         print("Not following = ",len(not_following))
         print(not_following)
 

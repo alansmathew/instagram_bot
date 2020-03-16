@@ -18,3 +18,4 @@
   <pre> RuntimeError: maximum recursion depth exceeded | <b> because of low internet speed or failed to load </b></pre>          
   <pre>NoSuchElementException: Message: no such element: Unable to locate element | <b> change time.sleep( to a higher value )</b></pre>
   </ul>
+  selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions.
