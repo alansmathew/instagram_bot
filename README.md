@@ -17,5 +17,6 @@
   <li> I tried firefox but it showed up some error. </li>
   <pre> RuntimeError: maximum recursion depth exceeded | <b> because of low internet speed or failed to load </b></pre>          
   <pre>NoSuchElementException: Message: no such element: Unable to locate element | <b> change time.sleep( to a higher value )</b></pre>
+  <pre>selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions.<br>if using Mac go to <b>System preference -> Security & Privacy -> Allow application </b></pre>
   </ul>
-  selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions.
+  
