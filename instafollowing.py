@@ -3,9 +3,9 @@ from selenium.webdriver.common.keys import Keys
 import time
 import sys
 sys.path.insert(0,'/Users/alansmathew/Desktop/insta_backup/')
-from password import password_
+from password import password_ ###
 
-page=''
+page = webdriver.Chrome(executable_path = '/Users/alansmathew/Desktop/instagram_bot/chromedriver')
 
 def loading(classname):
 	try:
@@ -30,8 +30,6 @@ def scroll():
     return names
     
 def login(username,password):
-    global page
-    page = webdriver.Chrome(executable_path = '/Users/alansmathew/Desktop/instagram_bot/chromedriver')
     page.maximize_window()
     page.get('https://www.instagram.com/accounts/login/')
     time.sleep(3)
@@ -78,43 +76,39 @@ username='alan_s_mathew'
 password=password_
 
 ch='y'
-while(ch=='y' or ch=='Y'):
+while(ch.lower()=='y'):
     choice=int(input("1) See who is not following back \n2) Like all photos of followers and following back\n3) Like all photos of followings users\n4) Like all photos of a pirticular user\n5) Exit\n\nSelect one :"))
     if(choice==1):
-
         login(username,password)
         following_ppl=following(username)
         followers_ppl=followers(username)
         page.close()
-        not_following =[ names for names in following_ppl if names not in followers_ppl ]
+        not_following = list(set(following_ppl)-set(followers_ppl))#[ names for names in following_ppl if names not in followers_ppl ]
         print("Not following = ",len(not_following))
         print(not_following)
-
+		
     elif(choice==2):
-
         login(username,password)
         following_ppl=following(username)
         followers_ppl=followers(username)
-        common =[ names for names in following_ppl if names in followers_ppl ]
-        for i in common:
-            likePhoto(i)
-
+        common = list(set(following_ppl) and set(followers_ppl))#[ names for names in following_ppl if names in followers_ppl ]
+        for person in common:
+            likePhoto(person)
+		
     elif(choice==3):
-
         login(username,password)
         following_ppl=following(username)
-        for i in followers_ppl:
+        for i in followers_ppl:###?
             likePhoto(i)
-
+		
     elif(choice==4):
-
         login(username,password)
         user=raw_input("Enter a username : ")
         likePhoto(user)
-
+		
     elif(choice==5):
         break
-
+	
     ch = raw_input("Do you wish to continue ? ( Y | N ) : ")
 
 print("Thanks for using this program (: ")
