@@ -1,6 +1,9 @@
 # Instagram_bot:
   Python project based on Selenium automation, which helps to see all following people who havent followed yet and much more.
- 
+
+# Note :
+  All the class names usered in the project can get changed !. So if any error occures try identifying those class using inspect element and change it accordingly. ive been using python 2.7 (default) so accepting is done with "raw_input()", those who are using latest versions of python <b> should change "raw_input()"  to  "input()"</b>.
+  
 # Step to Run:
   <B>1) Install selenium</b>
       <br><br>&nbsp;&nbsp;&nbsp;window users: <pre>pip install selenium</pre>
@@ -10,8 +13,7 @@
       <pre>https://chromedriver.chromium.org </pre>
   <b>3) Run using python </b>
       <br><pre>python instafollowing.py </pre>
-# Note :
-  All the class names usered in the project can get changed !. So if any error occures try identifying those class using inspect element and change it accordingly. ive been using python 2.7 (default) so accepting is done with "raw_input()", those who are using latest versions of python <b> should change "raw_input()" to "input()"</b>.
+
 # Findings:
 <ul style="circle">
   <li> I tried firefox but it showed up some error. </li>
