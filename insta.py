@@ -1,15 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
-import sys
+import time, sys
 sys.path.insert(0,'/Users/alansmathew/Desktop/insta_backup/')
 from password import password_
 
 page=webdriver.Chrome(executable_path = '/Users/alansmathew/Desktop/instagram_bot/chromedriver')
 
 def loading(classname):
-	try:
-		page.find_element_by_class_name(classname)
+	try: page.find_element_by_class_name(classname)
 	except :
 		time.sleep(0.1)
 		loading(classname)
